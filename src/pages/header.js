@@ -1,5 +1,5 @@
 import Icon from "../img/dripping.png";
-const header = function () {
+const headerDiv = function () {
     const header = document.createElement("header");
 
     const nav = document.createElement("nav");
@@ -34,4 +34,4 @@ const header = function () {
 
     return header;
 };
-export default header;
+export default headerDiv;

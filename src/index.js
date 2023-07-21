@@ -1,6 +1,7 @@
 import home from "./pages/home";
-import header from "./pages/header";
+import headerDiv from "./pages/header";
+import firstLoad from "./functions/firstLoad";
+import footer from "./pages/footer";
 import "./css/style.css";
 
-const body = document.querySelector("body");
-body.appendChild(header());
+firstLoad();

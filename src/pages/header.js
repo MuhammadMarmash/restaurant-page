@@ -1,37 +1,31 @@
 import Icon from "../img/dripping.png";
+import createElement from "../functions/createElement";
+
 const headerDiv = function () {
     const header = document.createElement("header");
 
-    const nav = document.createElement("nav");
-    header.appendChild(nav);
+    const nav = createElement({ type: "nav", father: header });
 
-    const cover = document.createElement("div");
-    cover.id = "cover";
-    cover.classList.add("home-tab");
-    nav.appendChild(cover);
+    const cover = createElement({
+        id: "cover",
+        classes: ["home-tab"],
+        father: nav,
+    });
 
-    const dripping = new Image();
-    dripping.id = "dripping";
-    dripping.src = Icon;
-    dripping.alt = "honey dripping img";
-    cover.appendChild(dripping);
+    createElement({
+        type: "img",
+        id: "dripping",
+        src: Icon,
+        alt: "honey dripping img",
+        father: cover,
+    });
 
-    const tab_list = document.createElement("ul");
-    tab_list.id = "tab-list";
-    nav.appendChild(tab_list);
+    const tab_list = createElement({ type: "ul", id: "tab-list", father: nav });
 
-    const home = document.createElement("li");
-    home.textContent = "Home";
-    tab_list.appendChild(home);
-
-    const menu = document.createElement("li");
-    menu.textContent = "Menu";
-    tab_list.appendChild(menu);
-
-    const contact = document.createElement("li");
-    contact.textContent = "contact";
-    tab_list.appendChild(contact);
+    for (let text of ["Home", "Menu", "Contact"])
+        createElement({ type: "li", textContent: text, father: tab_list });
 
     return header;
 };
+
 export default headerDiv;

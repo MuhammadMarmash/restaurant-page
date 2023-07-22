@@ -1,25 +1,34 @@
+import createElement from "../functions/createElement";
 const footer = function () {
     const theFooter = document.createElement("footer");
 
-    const a1 = document.createElement("a");
-    a1.href = "http://www.freepik.com";
-    a1.textContent = "Hive icon made by Freepik - www.flaticon.com";
-    theFooter.appendChild(a1);
+    createElement({
+        type: "a",
+        href: "http://www.freepik.com",
+        textContent: "Hive icon made by Freepik - www.flaticon.com",
+        father: theFooter,
+    });
 
-    const a2 = document.createElement("a");
-    a2.href = "https://www.flaticon.com/authors/smashicons";
-    a2.textContent = "Bee icons made by Smashicons - www.flaticon.com";
-    theFooter.appendChild(a2);
+    createElement({
+        type: "a",
+        href: "https://www.flaticon.com/authors/smashicons",
+        textContent: "Bee icons made by Smashicons - www.flaticon.com",
+        father: theFooter,
+    });
 
-    const a3 = document.createElement("a");
-    a3.href = "https://www.freepik.com/vectors/food";
-    a3.textContent =
-        "Background image created by dgim-studio - www.freepik.com";
-    theFooter.appendChild(a3);
+    createElement({
+        type: "a",
+        href: "https://www.freepik.com/vectors/food",
+        textContent:
+            "Background image created by dgim-studio - www.freepik.com",
+        father: theFooter,
+    });
 
-    const p = document.createElement("p");
-    p.textContent = "design by Ben Eck";
-    theFooter.appendChild(p);
+    createElement({
+        type: "p",
+        textContent: "design by Ben Eck",
+        father: theFooter,
+    });
     return theFooter;
 };
 export default footer;

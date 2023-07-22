@@ -1,63 +1,128 @@
 import beeIcon from "../img/bee.svg";
 import hiveIcon from "../img/honeycomb.svg";
+import createElement from "../functions/createElement";
+
 const home = function () {
     const content = document.querySelector("#content");
 
-    const main_heading = document.createElement("div");
-    main_heading.id = "main-heading";
-    content.appendChild(main_heading);
+    const main_heading = createElement({ id: "main-heading", father: content });
 
-    const bee1 = new Image();
-    bee1.id = "bee-left";
-    bee1.classList.add("decorations");
-    bee1.src = beeIcon;
-    bee1.alt = "bee img";
-    main_heading.appendChild(bee1);
+    createElement({
+        type: "img",
+        id: "bee-left",
+        classes: ["decorations"],
+        src: beeIcon,
+        alt: "bee img",
+        father: main_heading,
+    });
 
-    const bee2 = new Image();
-    bee2.id = "bee-right";
-    bee2.classList.add("decorations");
-    bee2.src = beeIcon;
-    bee2.alt = "bee img";
-    main_heading.appendChild(bee2);
+    createElement({
+        type: "img",
+        id: "bee-right",
+        classes: ["decorations"],
+        src: beeIcon,
+        alt: "bee img",
+        father: main_heading,
+    });
 
-    const heading_text = document.createElement("div");
-    heading_text.id = "heading-text";
-    main_heading.appendChild(heading_text);
+    const heading_text = createElement({
+        id: "heading-text",
+        father: main_heading,
+    });
 
-    const heading_text_text = document.createElement("h1");
-    heading_text_text.textContent = "Beary's Breakfast Bar";
-    heading_text.appendChild(heading_text_text);
+    createElement({
+        type: "h1",
+        textContent: "Beary's Breakfast Bar",
+        father: heading_text,
+    });
+
+    const review_card = createElement({
+        id: "review-card",
+        classes: ["crop-out"],
+        father: content,
+    });
+
+    const review_card_in = createElement({
+        classes: ["crop-in"],
+        father: review_card,
+    });
+
+    createElement({
+        type: "p",
+        id: "review",
+        textContent: `eary's has the best porridge! The atmosphere and customer service make you feel like you are
+        sitting in
+        the
+        middle of
+        the woods, eating like a bear! This is exactly the kind of place that I like to return to again and again.`,
+        father: review_card_in,
+    });
+    createElement({
+        type: "p",
+        id: "customer",
+        textContent: "MohammadMarmash",
+        father: review_card_in,
+    });
+
+    const hours_card = createElement({
+        classes: ["crop-out", "hours"],
+        father: content,
+    });
+
+    const hours_card_in = createElement({
+        classes: ["crop-in", "hours"],
+        father: hours_card,
+    });
+
+    createElement({ type: "h3", textContent: "Hours", father: hours_card_in });
+
+    let days = [
+        ["sunday", "8am - 8pm"],
+        ["monday", "6am - 6pm"],
+        ["tuesday", "6am - 6pm"],
+        ["wednesday", "6am - 6pm"],
+        ["thursday", "6am - 10pm"],
+        ["friday", "6am - 10pm"],
+        ["saturday", "8am - 10pm"],
+    ];
+    for (let day of days) {
+        createElement({
+            type: "p",
+            textContent: `${day[0]}: ${day[1]}`,
+            id: day[0],
+            father: hours_card_in,
+        });
+    }
+
+    const location_card = createElement({
+        classes: ["crop-out", "location"],
+        father: content,
+    });
+
+    const location_card_in = createElement({
+        classes: ["crop-in", "location"],
+        father: location_card,
+    });
+
+    createElement({
+        type: "h3",
+        textContent: "Location",
+        father: location_card_in,
+    });
+
+    createElement({
+        type: "p",
+        textContent: "123 Forest Drive, Forestville, Maine",
+        father: location_card_in,
+    });
+
+    createElement({
+        type: "img",
+        father: content,
+        classes: ["decorations"],
+        id: "hive",
+        src: hiveIcon,
+        al: "hive img",
+    });
 };
 export default home;
-
-//   <div class="crop-out" id="review-card">
-//     <div class="crop-in">
-//       <p id="review">Beary's has the best porridge! The atmosphere and customer service make you feel like you are
-//         sitting in
-//         the
-//         middle of
-//         the woods, eating like a bear! This is exactly the kind of place that I like to return to again and again.
-//       </p>
-//       <p id="customer">Mohammad Marmash</p>
-//     </div>
-//   </div>
-//   <div class="crop-out hours">
-//     <div class="crop-in hours">
-//       <h3>Hours</h3>
-//       <p id="sunday">Sunday: 8am - 8pm</p>
-//       <p id="monday">Monday: 6am - 6pm</p>
-//       <p id="tuesday">Tuesday: 6am - 6pm</p>
-//       <p id="wednesday">Wednesday: 6am - 6pm</p>
-//       <p id="thursday">Thursday: 6am - 10pm</p>
-//       <p id="friday">Friday: 6am - 10pm</p>
-//       <p id="saturday">Saturday: 8am - 10pm</p>
-//     </div>
-//   </div>
-//   <div class="crop-out location">
-//     <div class="crop-in location">
-//       <h3>Location</h3>
-//       <p>123 Forest Drive, Forestville, Maine</p>
-//     </div>
-//   </div>
-//   <img class="decorations" id="hive" src="9f6b40b263827ecffca7.svg" alt="hive"></img>

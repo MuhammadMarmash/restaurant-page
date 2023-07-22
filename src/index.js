@@ -1,13 +1,19 @@
 import home from "./pages/home";
-import headerDiv from "./pages/header";
 import firstLoad from "./functions/firstLoad";
-import createElement from "./functions/createElement";
-import footer from "./pages/footer";
 import clearContent from "./functions/clearContent";
 import "./css/style.css";
 import contact from "./pages/contact";
-import menu from "./pages/menu";
+import menuPage from "./pages/menu";
 import setNav from "./functions/setNav";
+import {
+    contacts,
+    info,
+    menu,
+    reviews,
+    homeTitle,
+    menuTitle,
+    contactTitle,
+} from "./config";
 
 firstLoad();
 
@@ -26,7 +32,7 @@ menuButton.addEventListener("click", function () {
     console.log("menu");
     setNav("menu");
     clearContent();
-    menu();
+    menuPage();
 });
 
 contactButton.addEventListener("click", function () {

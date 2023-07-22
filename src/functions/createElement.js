@@ -7,6 +7,8 @@ const createElement = function ({
     textContent = 0,
     href = 0,
     father = 0,
+    title = 0,
+    style = 0,
 } = {}) {
     const element = document.createElement(type);
     if (classes !== 0) for (let i in classes) element.classList.add(classes[i]);
@@ -16,6 +18,9 @@ const createElement = function ({
     if (textContent !== 0) element.textContent = textContent;
     if (href !== 0) element.href = href;
     if (father !== 0) father.appendChild(element);
+    if (title !== 0) element.title = title;
+    if (style !== 0) element.style = style;
+
     return element;
 };
 

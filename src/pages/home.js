@@ -5,7 +5,10 @@ import createElement from "../functions/createElement";
 const home = function () {
     const content = document.querySelector("#content");
 
-    const main_heading = createElement({ id: "main-heading", father: content });
+    const main_heading = createElement({
+        classes: ["heading"],
+        father: content,
+    });
 
     createElement({
         type: "img",
@@ -26,7 +29,7 @@ const home = function () {
     });
 
     const heading_text = createElement({
-        id: "heading-text",
+        classes: ["heading-text"],
         father: main_heading,
     });
 

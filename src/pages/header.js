@@ -15,6 +15,7 @@ const headerDiv = function () {
     createElement({
         type: "img",
         id: "dripping",
+        classes: ["disabled"],
         src: Icon,
         alt: "honey dripping img",
         father: cover,
@@ -23,7 +24,12 @@ const headerDiv = function () {
     const tab_list = createElement({ type: "ul", id: "tab-list", father: nav });
 
     for (let text of ["Home", "Menu", "Contact"])
-        createElement({ type: "li", textContent: text, father: tab_list });
+        createElement({
+            type: "li",
+            textContent: text,
+            father: tab_list,
+            id: text.toLowerCase(),
+        });
 
     return header;
 };
